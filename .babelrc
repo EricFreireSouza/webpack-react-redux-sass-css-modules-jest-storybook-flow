@@ -26,6 +26,7 @@
     ["module-resolver", {
       "root": ["./src/js"],
       "alias": {
+        "MyComponent": "./node_modules/my-components",
         "MasterPage": "./src/js/structure",
         "Actions": "./src/js/actions",
         "Reducers": "./src/js/reducers",

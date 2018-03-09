@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import MyComponent from 'MyComponent'
+import React, {Component} from 'react'
 import './_styles.scss'
 
 class Main extends Component {
@@ -9,6 +10,7 @@ class Main extends Component {
         <div styleName='container'>
           Hello World
         </div>
+        <MyComponent />
       </div>
     )
   }

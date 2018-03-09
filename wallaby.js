@@ -1,10 +1,11 @@
 module.exports = function (wallaby) {
   return {
     files: [
-      'src/**/*.js?(x)',
-      'src/**/*.snap',
+      { pattern: 'src/**/*.js?(x)', load: false },
+      { pattern: 'src/**/*.snap', load: false },
       '!src/**/test.js?(x)'
     ],
+
     tests: [
       'src/**/test.js?(x)'
     ],

@@ -7,6 +7,7 @@ const HtmlPlugin = require('html-webpack-plugin')
 const Webpack = require('webpack')
 
 const paths = {
+  myComponents: join(__dirname, '..', 'node_modules', 'my-components'),
   dist: join(__dirname, '..', 'build'),
   public: join(__dirname, '..', 'public'),
   root: join(__dirname, '..'),
@@ -71,8 +72,7 @@ module.exports = {
   preLoader: {
     enforce: 'pre',
     test: /\.jsx?$/,
-    include: paths.src,
-    exclude: /node_modules/,
+    include: [paths.myComponents, paths.src],
     use: {
       loader: 'standard-loader',
       options: {
@@ -83,8 +83,7 @@ module.exports = {
 
   jsLoader: {
     test: /\.jsx?$/,
-    include: paths.src,
-    exclude: /node_modules/,
+    include: [paths.myComponents, paths.src],
     use: {
       loader: 'babel-loader',
       options: {
@@ -112,6 +111,7 @@ module.exports = {
           ['module-resolver', {
             root: ['./src/js'],
             alias: {
+              MyComponent: './node_modules/my-components',
               MasterPage: './src/js/structure',
               Actions: './src/js/actions',
               Reducers: './src/js/reducers',
@@ -194,8 +194,7 @@ module.exports = {
 
   fileLoader: {
     test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|txt)(\?.*)?$/,
-    include: paths.src,
-    exclude: /node_modules/,
+    include: [paths.myComponents, paths.src],
     use: {
       loader: 'file-loader',
       options: {
@@ -206,8 +205,7 @@ module.exports = {
 
   urlLoader: {
     test: /\.(mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
-    include: paths.src,
-    exclude: /node_modules/,
+    include: [paths.myComponents, paths.src],
     use: {
       loader: 'url-loader',
       options: {
